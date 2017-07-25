@@ -1,7 +1,5 @@
 {
   "name": "bottt",
-  "version": "1.0.0",
-  "description": "",
   "main": "bots.js",
   "engines": {
       "node": "6.1.0",
@@ -10,7 +8,6 @@
   "scripts": {
     "start": "node bots.js"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "https-proxy-agent": "^2.0.0",
