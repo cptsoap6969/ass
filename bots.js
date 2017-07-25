@@ -4,12 +4,11 @@ const Request = require("request");
 const Socks = require("socks");
 const HttpAgent = require("https-proxy-agent");
 const SocketClient = require("socket.io")(8081);
-
 var Proxies = null;
 var ProxiesType = null;
 
-var BotNames = [new Buffer(process.argv[2], '\x62\x61\x73\x65\x36\x34').toString(), new Buffer(process.argv[3], '\x62\x61\x73\x65\x36\x34').toString()];
-
+var BotNames = 'Likes!!!';
+var ass = '[bonk]';
 var Bots = [];
 
 global.client = {
@@ -44,6 +43,10 @@ SocketClient.on('connection', (socket) => {
 		}
 		else for(let i in Proxies) Bots.push(new Bot(i));
 
+		if (client.origin == "http://gota.io");
+		{
+		this.name = ass + " | " + this.id;
+		}
 		console.log("[SERVER]: Connecting Bots...");
 		console.log("[SERVER]: Origin: " + client.origin);
 		console.log("[SERVER]: Server IP: " + client.ip);
@@ -104,7 +107,8 @@ class Bot {
 	constructor(id){
 		this.id = id;
 		this.ws = null;
-		this.name = BotNames[~~(Math.random() * BotNames.length)] + " | " + this.id;
+		//this.name = BotNames + " | " + this.id;
+		this.name = BotNames
 		this.proxy = Proxies[this.id].split(":");
 
 		this.agent = ProxiesType == "socks" ? new Socks.Agent({
@@ -192,7 +196,7 @@ class Bot {
 				let buf = new BufferWriter();
 				buf.writeU8(30);
 				buf.writeString(this.name);
-				buf.writeString("x");
+				buf.writeString("");
 				buf.writeString("http://i.imgur.com/k4heQm4.jpg");
 				buf.writeString("");
 				buf.writeString("http://i.imgur.com/k4heQm4.jpg");
@@ -239,7 +243,7 @@ class Bot {
 		    case "http://gota.io":
 		    	let offset = 1;
 		    	buf = new Buffer(1 + 2 * (this.name.length + 1));
-		    	buf.writeUInt8(0, 0);
+				buf.writeUInt8(0, 0);
 		    	for(let i = 0; i < this.name.length; i++) buf.writeUInt16LE(this.name.charCodeAt(i), offset), offset += 2;
 		    	buf.writeUInt16LE(0, offset);
 		    	this.send(buf);
