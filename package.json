@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "bots.js",
+  "engines": {
+      "node": "6.1.0",
+      "npm": "3.8.6"
+  },
   "scripts": {
-    "test": "node bots.js"
+    "start": "node bots.js"
   },
   "author": "",
   "license": "ISC",
