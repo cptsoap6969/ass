@@ -3,7 +3,7 @@ const Fs = require("fs");
 const Request = require("request");
 const Socks = require("socks");
 const HttpAgent = require("https-proxy-agent");
-const SocketClient = require("socket.io")(8081);
+const SocketClient = require("socket.io")(8080);
 var Proxies = null;
 var ProxiesType = null;
 
